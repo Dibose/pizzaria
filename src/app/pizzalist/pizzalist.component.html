@@ -1,0 +1,64 @@
+<ng-template #notConnected class="splash">
+  <div align="center" class="mar">
+    Loading...
+    <img
+      style="width: 50px; height: 50px"
+      class="splash_image"
+      src="../../assets/Loading.gif"
+      alt=""
+    />
+  </div>
+</ng-template>
+<div style="width: 100%" *ngIf="conn.connected$ | async; else notConnected">
+  <div class="row">
+    <div class="col-6" *ngFor="let e of pizzas">
+      <table class="table">
+        <tbody>
+          <tr class="border border-warning border-1 shad">
+            <td scope="row">
+              <br />
+              <strong>{{ e.name }}</strong> <br />
+              <br /><br />
+              <strong>{{ e.price | currency: "INR" }}</strong>
+              <br />
+              <br />
+              <div *ngIf="e.type == 'veg'" align="center">
+                <img
+                  src="/assets/veg.png"
+                  alt="veg"
+                  width="20px"
+                  height="20px"
+                />
+              </div>
+              <div *ngIf="e.type == 'nonveg'" align="center">
+                <img
+                  src="/assets/non-veg.jpg"
+                  alt="veg"
+                  width="25px"
+                  height="25px"
+                />
+              </div>
+            </td>
+            <td>
+              <br />
+              {{ e.description }} <br />
+              <p><strong>Ingredients :</strong>{{ e.ingredients }}</p>
+              <p><strong>Topping :</strong> {{ e.topping }}</p>
+            </td>
+            <td align="center">
+              <img [src]="e.image" width="150px" height="159px" />
+              <br /><br />
+              <button
+                (click)="sendCart(e)"
+                class="btn btn-sm btn-warning text"
+                appStyle
+              >
+                Order now
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

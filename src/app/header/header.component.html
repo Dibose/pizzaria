@@ -1,0 +1,39 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <div class="navbar-nav mar">
+      <a class="navbar-brand" [routerLink]="['/']" style="color: silver"
+        ><h4>Pizzeria</h4></a
+      >
+      <a [routerLink]="['/']" routerLinkActive="router-link-active">
+        <img
+          src="/assets/PizzeriaLogo.png"
+          alt="logo"
+          style="width: 55px; height: 55px"
+        />
+      </a>
+      &nbsp;&nbsp;
+      <a
+        class="nav-link"
+        [routerLink]="['/orderpizza']"
+        routerLinkActive="router-link-active"
+        ><h6>Order Pizza</h6></a
+      >
+      <a
+        class="nav-link"
+        [routerLink]="['/buildurpizza']"
+        routerLinkActive="router-link-active"
+        ><h6>Build Ur Pizza</h6></a
+      >
+    </div>
+    <div class="navbar-nav mr-auto">
+      <button
+        type="button "
+        class="btn btn-warning cr"
+        [routerLink]="['/cart']"
+        routerLinkActive="router-link-active"
+      >
+        <i class="fas fa-shopping-cart"></i> Shopping Cart
+      </button>
+    </div>
+  </div>
+</nav>
